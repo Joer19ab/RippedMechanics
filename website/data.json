@@ -1,8 +1,28 @@
 {
+  "config": {
+    "program_start": "2026-05-06",
+    "race_date_hyrox": "2026-09-06",
+    "race_date_703": "2027-06-22",
+    "athlete_name": "Johannes",
+    "baseline": {
+      "rhr": 52,
+      "hrv": 119,
+      "run_5k_seconds": 1450,
+      "run_5k": "24:10",
+      "run_10k": "52:05",
+      "run_hm": "1:57:00",
+      "ftp_watts": 230,
+      "weight_kg": 84,
+      "squat_kg": 100,
+      "deadlift_kg": 125,
+      "swim_100m_seconds": 0
+    }
+  },
   "week_1": {
     "week": 1,
     "completed_sessions": 12,
     "compliance_score": 100,
+    "session_status": [true, true, true, true, true, true, true, true, true, true, true, true],
     "run_trend": "stable",
     "bike_trend": "stable",
     "swim_trend": "stable",
@@ -11,14 +31,24 @@
     "sleep_consistency": "excellent",
     "hrv_trend": "stable",
     "rhr_trend": "stable",
+    "hrv_value": 119,
+    "rhr_value": 52,
     "macro_adherence": 90,
     "carb_periodization": 85,
     "fueling_score": 88,
-    "avg_weight": 75.5,
+    "avg_weight": 84.0,
     "next_week_load": "progress",
     "volume_change": 5,
     "intensity_change": "maintain",
     "priorities": "Establish consistent sleep window, practice fueling on long sessions",
+    "benchmarks": {
+      "run_5k_seconds": 1450,
+      "ftp_watts": 230,
+      "hrv": 119,
+      "rhr": 52,
+      "squat_kg": 100,
+      "deadlift_kg": 125
+    },
     "timestamp": "2026-05-13T00:00:00.000Z"
   }
 }

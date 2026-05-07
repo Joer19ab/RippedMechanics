@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RippedMechanics - Progress Tracker</title>
+    <title>RippedMechanics – Progress Tracker</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,10 +14,11 @@
         <nav class="navbar">
             <div class="nav-header">
                 <h1 class="logo">RippedMechanics</h1>
-                <p class="subtitle">Hyrox + 70.3 Build Program</p>
+                <p class="subtitle">Hyrox + 70.3 Build Program — Johannes</p>
             </div>
             <div class="nav-tabs">
-                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="plan">Program Plan</button>
                 <button class="tab-btn" data-tab="tracking">Weekly Tracking</button>
                 <button class="tab-btn" data-tab="analytics">Analytics</button>
                 <button class="tab-btn" data-tab="settings">Settings</button>
@@ -26,168 +28,406 @@
         <!-- Main Content -->
         <main class="content">
 
-            <!-- OVERVIEW TAB -->
-            <section id="overview" class="tab-content active">
-                <div class="section-header">
-                    <h2>Program Overview</h2>
-                    <p>16-Week Hyrox Build + 70.3 Base</p>
-                </div>
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- DASHBOARD TAB                                               -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <section id="dashboard" class="tab-content active">
 
-                <!-- Program Progress -->
-                <div class="card">
-                    <h3>Program Progress</h3>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="programProgress" style="width: 6.25%"></div>
+                <!-- Hero Row: Countdowns + Program Ring -->
+                <div class="hero-grid">
+                    <div class="countdown-card card">
+                        <div class="countdown-label">Hyrox Race</div>
+                        <div class="countdown-date">6 Sep 2026</div>
+                        <div class="countdown-days" id="hyroxCountdown">—</div>
+                        <div class="countdown-unit">days away</div>
+                        <div class="countdown-sub">Sub-75 min target</div>
+                    </div>
+                    <div class="countdown-card card countdown-card--703">
+                        <div class="countdown-label">Ironman 70.3</div>
+                        <div class="countdown-date">22 Jun 2027</div>
+                        <div class="countdown-days" id="ironmanCountdown">—</div>
+                        <div class="countdown-unit">days away</div>
+                        <div class="countdown-sub">Sub-5:00 target</div>
+                    </div>
+                    <div class="program-ring-card card">
+                        <h3>Program Progress</h3>
+                        <div class="ring-container">
+                            <svg class="progress-ring" viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="50"/>
+                                <circle class="ring-fill" id="programRingFill" cx="60" cy="60" r="50"
+                                    stroke-dasharray="314.16"
+                                    stroke-dashoffset="314.16"/>
+                                <text class="ring-text" x="60" y="55" text-anchor="middle" id="ringWeekText">W1</text>
+                                <text class="ring-subtext" x="60" y="72" text-anchor="middle" id="ringPctText">6.25%</text>
+                            </svg>
                         </div>
-                        <p class="progress-text" id="progressText">Week 1 of 16 (6.25%)</p>
+                        <p class="ring-caption" id="ringCaption">Week 1 of 16 · Phase 1: Foundation</p>
                     </div>
                 </div>
 
-                <!-- Macrocycle Phases -->
+                <!-- Quick Stats Row -->
+                <div class="quick-stats-grid">
+                    <div class="quick-stat">
+                        <div class="qs-icon">🏃</div>
+                        <div class="qs-value" id="dashWeek">W1</div>
+                        <div class="qs-label">Current Week</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="qs-icon">✅</div>
+                        <div class="qs-value" id="dashCompliance">—</div>
+                        <div class="qs-label">This Week Sessions</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="qs-icon">💤</div>
+                        <div class="qs-value" id="dashSleep">—h</div>
+                        <div class="qs-label">Avg Sleep</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="qs-icon">❤️</div>
+                        <div class="qs-value" id="dashHRV">—</div>
+                        <div class="qs-label">HRV</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="qs-icon">⚖️</div>
+                        <div class="qs-value" id="dashWeight">—kg</div>
+                        <div class="qs-label">Body Weight</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="qs-icon">🥗</div>
+                        <div class="qs-value" id="dashNutrition">—%</div>
+                        <div class="qs-label">Macro Adherence</div>
+                    </div>
+                </div>
+
+                <!-- Today's Training + Readiness -->
+                <div class="two-col-grid">
+                    <div class="card">
+                        <h3>Today's Training Focus</h3>
+                        <div id="todaySession" class="today-session">
+                            <div class="today-session-item loading">Loading session…</div>
+                        </div>
+                        <div class="zone-strip">
+                            <span class="zone-pill z1">Z1</span>
+                            <span class="zone-pill z2 active">Z2 ~80%</span>
+                            <span class="zone-pill z3">Z3</span>
+                            <span class="zone-pill z4">Z4</span>
+                            <span class="zone-pill z5">Z5 ~20%</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Performance Snapshot</h3>
+                        <canvas id="dashRadarChart" height="220"></canvas>
+                    </div>
+                </div>
+
+                <!-- Phase Progress Timeline -->
                 <div class="card">
-                    <h3>Macrocycle Phases</h3>
-                    <div class="phases-grid">
-                        <div class="phase active">
-                            <div class="phase-number">1</div>
-                            <div class="phase-content">
-                                <h4>Foundation & Diagnostics</h4>
-                                <p>Weeks 1-4</p>
+                    <h3>Macrocycle Timeline</h3>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-bar">
+                            <div class="tl-phase tl-phase-1" style="width:25%">
+                                <span>Phase 1</span><small>Foundation</small><small>W1–4</small>
+                            </div>
+                            <div class="tl-phase tl-phase-2" style="width:25%">
+                                <span>Phase 2</span><small>Build</small><small>W5–8</small>
+                            </div>
+                            <div class="tl-phase tl-phase-3" style="width:25%">
+                                <span>Phase 3</span><small>Specificity</small><small>W9–12</small>
+                            </div>
+                            <div class="tl-phase tl-phase-4" style="width:18.75%">
+                                <span>Phase 4</span><small>Sharpen</small><small>W13–15</small>
+                            </div>
+                            <div class="tl-phase tl-phase-5" style="width:6.25%">
+                                <span>5</span><small>Race</small><small>W16</small>
                             </div>
                         </div>
-                        <div class="phase">
-                            <div class="phase-number">2</div>
-                            <div class="phase-content">
-                                <h4>Build Capacity</h4>
-                                <p>Weeks 5-8</p>
-                            </div>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-number">3</div>
-                            <div class="phase-content">
-                                <h4>Hyrox Specificity</h4>
-                                <p>Weeks 9-12</p>
-                            </div>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-number">4</div>
-                            <div class="phase-content">
-                                <h4>Sharpen & Simulation</h4>
-                                <p>Weeks 13-15</p>
-                            </div>
-                        </div>
-                        <div class="phase">
-                            <div class="phase-number">5</div>
-                            <div class="phase-content">
-                                <h4>Taper & Race</h4>
-                                <p>Week 16</p>
+                        <div class="tl-marker-row">
+                            <div class="tl-marker" id="currentWeekMarker" style="left: 3.125%">
+                                <div class="tl-marker-pin"></div>
+                                <div class="tl-marker-label">Now</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Weekly Summary -->
+                <!-- Week Compliance Sparklines -->
                 <div class="card">
-                    <h3>Weekly Session Template</h3>
-                    <div class="sessions-list">
-                        <div class="session-item">
-                            <span class="session-day">MON AM</span>
-                            <span class="session-desc">Easy Run Z2 + Strides</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">MON PM</span>
-                            <span class="session-desc">Lower Strength + Sled</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">TUE AM</span>
-                            <span class="session-desc">Swim Technique/Aerobic</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">TUE PM</span>
-                            <span class="session-desc">Bike Threshold</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">WED AM</span>
-                            <span class="session-desc">Hyrox Engine Intervals</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">WED PM</span>
-                            <span class="session-desc">Mobility + Breathing</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">THU AM</span>
-                            <span class="session-desc">Swim + Pull Focus</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">THU PM</span>
-                            <span class="session-desc">Run Threshold/Tempo</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">FRI AM</span>
-                            <span class="session-desc">Easy Bike Z2</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">FRI PM</span>
-                            <span class="session-desc">Hyrox Strength Circuit</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">SAT</span>
-                            <span class="session-desc">Long Bike or Brick</span>
-                        </div>
-                        <div class="session-item">
-                            <span class="session-day">SUN</span>
-                            <span class="session-desc">Long Run Z2 + Mobility</span>
-                        </div>
-                    </div>
+                    <h3>16-Week Compliance Overview</h3>
+                    <canvas id="complianceSparkline" height="70"></canvas>
                 </div>
 
-                <!-- Intensity Distribution -->
-                <div class="card">
-                    <h3>Intensity Distribution</h3>
-                    <div class="intensity-info">
-                        <p><strong>Easy/Z2:</strong> ~80% of training</p>
-                        <p><strong>Hard/Intervals:</strong> ~20% of training</p>
-                        <p><strong>Key Intensity Days:</strong> Tuesday, Thursday, Friday PM, Select Saturday</p>
-                    </div>
-                </div>
             </section>
 
-            <!-- TRACKING TAB -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- PROGRAM PLAN TAB                                            -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <section id="plan" class="tab-content">
+                <div class="section-header">
+                    <h2>16-Week Program Plan</h2>
+                    <p>Hyrox Build + 70.3 Base — May 6 to Aug 22, 2026</p>
+                </div>
+
+                <!-- Phase Cards -->
+                <div class="phases-detail-grid">
+                    <div class="phase-detail-card phase-detail-1">
+                        <div class="pdc-header">
+                            <span class="pdc-badge">Phase 1</span>
+                            <h4>Foundation & Diagnostics</h4>
+                            <span class="pdc-weeks">Weeks 1–4</span>
+                        </div>
+                        <ul class="pdc-list">
+                            <li>Establish consistent sleep &amp; routine</li>
+                            <li>Z2 base building — all 4 disciplines</li>
+                            <li>Baseline tests: 5K, FTP, swim 400m</li>
+                            <li>80/20 intensity split enforced strictly</li>
+                            <li>Introduce sled &amp; lower body strength</li>
+                        </ul>
+                        <div class="pdc-kpi">
+                            <span>Target Compliance</span>
+                            <strong>≥90%</strong>
+                        </div>
+                    </div>
+                    <div class="phase-detail-card phase-detail-2">
+                        <div class="pdc-header">
+                            <span class="pdc-badge">Phase 2</span>
+                            <h4>Build Capacity</h4>
+                            <span class="pdc-weeks">Weeks 5–8</span>
+                        </div>
+                        <ul class="pdc-list">
+                            <li>Progressive volume increase (+5–10%/wk)</li>
+                            <li>Introduce threshold intervals</li>
+                            <li>Hyrox engine intervals (SkiErg, sled)</li>
+                            <li>Brick sessions: bike→run</li>
+                            <li>Mid-program test: 5K, FTP retest</li>
+                        </ul>
+                        <div class="pdc-kpi">
+                            <span>Target Compliance</span>
+                            <strong>≥85%</strong>
+                        </div>
+                    </div>
+                    <div class="phase-detail-card phase-detail-3">
+                        <div class="pdc-header">
+                            <span class="pdc-badge">Phase 3</span>
+                            <h4>Hyrox Specificity</h4>
+                            <span class="pdc-weeks">Weeks 9–12</span>
+                        </div>
+                        <ul class="pdc-list">
+                            <li>Compromised running after station work</li>
+                            <li>Sled push/pull loaded intervals</li>
+                            <li>SkiErg + Wall Balls + Burpee combos</li>
+                            <li>Race-pace 1K repeats</li>
+                            <li>Strength maintenance (not building)</li>
+                        </ul>
+                        <div class="pdc-kpi">
+                            <span>Target Compliance</span>
+                            <strong>≥85%</strong>
+                        </div>
+                    </div>
+                    <div class="phase-detail-card phase-detail-4">
+                        <div class="pdc-header">
+                            <span class="pdc-badge">Phase 4</span>
+                            <h4>Sharpen &amp; Simulate</h4>
+                            <span class="pdc-weeks">Weeks 13–15</span>
+                        </div>
+                        <ul class="pdc-list">
+                            <li>Full Hyrox simulation race effort</li>
+                            <li>Race-day nutrition &amp; pacing rehearsal</li>
+                            <li>Sharpen run speed: 400m repeats</li>
+                            <li>Protect recovery — sleep &gt;8h nightly</li>
+                            <li>Final FTP &amp; run benchmark test</li>
+                        </ul>
+                        <div class="pdc-kpi">
+                            <span>Target Compliance</span>
+                            <strong>≥80%</strong>
+                        </div>
+                    </div>
+                    <div class="phase-detail-card phase-detail-5">
+                        <div class="pdc-header">
+                            <span class="pdc-badge">Phase 5</span>
+                            <h4>Taper &amp; Race</h4>
+                            <span class="pdc-weeks">Week 16</span>
+                        </div>
+                        <ul class="pdc-list">
+                            <li>Volume cut by 40–50%</li>
+                            <li>Maintain intensity — short, sharp</li>
+                            <li>Gear &amp; logistics check</li>
+                            <li>Visualise full race execution</li>
+                            <li>Race Day: Sub-75 min execution</li>
+                        </ul>
+                        <div class="pdc-kpi">
+                            <span>Race Target</span>
+                            <strong>&lt;75 min</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekly Session Template -->
+                <div class="card">
+                    <h3>Weekly Session Template</h3>
+                    <div class="week-template-grid">
+                        <div class="wt-day">
+                            <div class="wt-day-label">MON</div>
+                            <div class="wt-session wt-run">
+                                <div class="wt-time">AM</div>
+                                <div class="wt-desc">Easy Run Z2 + Strides</div>
+                                <div class="wt-tag">Run • Z2</div>
+                            </div>
+                            <div class="wt-session wt-strength">
+                                <div class="wt-time">PM</div>
+                                <div class="wt-desc">Lower Strength + Sled</div>
+                                <div class="wt-tag">Strength • Hyrox</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">TUE</div>
+                            <div class="wt-session wt-swim">
+                                <div class="wt-time">AM</div>
+                                <div class="wt-desc">Swim Technique / Aerobic</div>
+                                <div class="wt-tag">Swim • Technique</div>
+                            </div>
+                            <div class="wt-session wt-bike wt-hard">
+                                <div class="wt-time">PM</div>
+                                <div class="wt-desc">Bike Threshold</div>
+                                <div class="wt-tag">Bike • Threshold ⚡</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">WED</div>
+                            <div class="wt-session wt-hyrox wt-hard">
+                                <div class="wt-time">AM</div>
+                                <div class="wt-desc">Hyrox Engine Intervals</div>
+                                <div class="wt-tag">Hyrox • Intervals ⚡</div>
+                            </div>
+                            <div class="wt-session wt-recovery">
+                                <div class="wt-time">PM</div>
+                                <div class="wt-desc">Mobility + Breathing</div>
+                                <div class="wt-tag">Recovery</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">THU</div>
+                            <div class="wt-session wt-swim">
+                                <div class="wt-time">AM</div>
+                                <div class="wt-desc">Swim + Pull Focus</div>
+                                <div class="wt-tag">Swim • Strength</div>
+                            </div>
+                            <div class="wt-session wt-run wt-hard">
+                                <div class="wt-time">PM</div>
+                                <div class="wt-desc">Run Threshold / Tempo</div>
+                                <div class="wt-tag">Run • Threshold ⚡</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">FRI</div>
+                            <div class="wt-session wt-bike">
+                                <div class="wt-time">AM</div>
+                                <div class="wt-desc">Easy Bike Z2</div>
+                                <div class="wt-tag">Bike • Z2</div>
+                            </div>
+                            <div class="wt-session wt-hyrox wt-hard">
+                                <div class="wt-time">PM</div>
+                                <div class="wt-desc">Hyrox Strength Circuit</div>
+                                <div class="wt-tag">Hyrox • Strength ⚡</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">SAT</div>
+                            <div class="wt-session wt-bike wt-long">
+                                <div class="wt-time">ALL</div>
+                                <div class="wt-desc">Long Bike or Brick</div>
+                                <div class="wt-tag">Bike/Brick • Z2 🔑</div>
+                            </div>
+                        </div>
+                        <div class="wt-day">
+                            <div class="wt-day-label">SUN</div>
+                            <div class="wt-session wt-run wt-long">
+                                <div class="wt-time">ALL</div>
+                                <div class="wt-desc">Long Run Z2 + Mobility</div>
+                                <div class="wt-tag">Run • Z2 🔑</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="intensity-legend">
+                        <span class="il-item"><span class="il-dot il-z2"></span>Z2 Easy (~80%)</span>
+                        <span class="il-item"><span class="il-dot il-hard"></span>Hard / Threshold (~20%) ⚡</span>
+                        <span class="il-item"><span class="il-dot il-long"></span>Long Session 🔑</span>
+                    </div>
+                </div>
+
+                <!-- Performance Baselines -->
+                <div class="card">
+                    <h3>Performance Baselines &amp; Targets</h3>
+                    <div class="baselines-grid">
+                        <div class="baseline-item">
+                            <div class="bl-label">5K Run</div>
+                            <div class="bl-current">24:10</div>
+                            <div class="bl-target">Target: &lt;22:00</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:55%"></div></div>
+                        </div>
+                        <div class="baseline-item">
+                            <div class="bl-label">FTP</div>
+                            <div class="bl-current">230W</div>
+                            <div class="bl-target">Target: 270W</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:60%"></div></div>
+                        </div>
+                        <div class="baseline-item">
+                            <div class="bl-label">HRV</div>
+                            <div class="bl-current">119</div>
+                            <div class="bl-target">Target: ≥130</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:70%"></div></div>
+                        </div>
+                        <div class="baseline-item">
+                            <div class="bl-label">RHR</div>
+                            <div class="bl-current">52 bpm</div>
+                            <div class="bl-target">Target: ≤48</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:65%"></div></div>
+                        </div>
+                        <div class="baseline-item">
+                            <div class="bl-label">Half Marathon</div>
+                            <div class="bl-current">1:57:00</div>
+                            <div class="bl-target">Target: &lt;1:45:00</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:50%"></div></div>
+                        </div>
+                        <div class="baseline-item">
+                            <div class="bl-label">Squat</div>
+                            <div class="bl-current">100 kg</div>
+                            <div class="bl-target">Target: 120 kg</div>
+                            <div class="bl-bar"><div class="bl-fill" style="width:65%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- WEEKLY TRACKING TAB                                         -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
             <section id="tracking" class="tab-content">
                 <div class="section-header">
                     <h2>Weekly Tracking</h2>
                     <div class="week-selector">
-                        <button id="prevWeek" class="week-nav-btn">← Previous</button>
-                        <select id="weekSelect">
-                            <option value="1">Week 1 (May 6-12, 2026)</option>
-                        </select>
+                        <button id="prevWeek" class="week-nav-btn">← Prev</button>
+                        <select id="weekSelect"></select>
                         <button id="nextWeek" class="week-nav-btn">Next →</button>
                     </div>
                 </div>
 
-                <!-- Compliance Card -->
+                <!-- Session Checklist Grid -->
                 <div class="card">
-                    <h3>Compliance Snapshot</h3>
-                    <div class="stats-grid">
-                        <div class="stat-box">
-                            <div class="stat-value" id="completedSessions">0</div>
-                            <div class="stat-label">Completed / Planned</div>
-                            <input type="number" id="completedInput" min="0" max="12" value="0" class="stat-input">
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-value" id="completionRate">0%</div>
-                            <div class="stat-label">Completion Rate</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-value" id="avgComplianceScore">—</div>
-                            <div class="stat-label">Weekly Compliance</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-value" id="missedSessionsCount">0</div>
-                            <div class="stat-label">Missed Sessions</div>
-                        </div>
+                    <h3>Session Checklist</h3>
+                    <p class="info-text" style="margin-bottom:1rem">Click sessions to mark as complete. Auto-calculates compliance.</p>
+                    <div class="session-grid" id="sessionGrid">
+                        <!-- Populated by JS -->
                     </div>
-                    <button id="updateComplianceBtn" class="btn btn-primary">Update Compliance Data</button>
+                    <div class="session-grid-footer">
+                        <div class="sgf-stat">
+                            <span id="sgCompleted">0</span> / 12 completed
+                        </div>
+                        <div class="sgf-stat">
+                            Compliance: <span id="sgComplianceRate">0%</span>
+                        </div>
+                        <button id="clearSessionsBtn" class="btn btn-secondary btn-sm">Reset Week</button>
+                    </div>
                 </div>
 
                 <!-- Performance Metrics -->
@@ -238,8 +478,8 @@
                     <h3>Recovery Metrics</h3>
                     <div class="metrics-grid">
                         <div class="metric-item">
-                            <label>Avg Sleep Duration</label>
-                            <input type="number" id="avgSleep" min="0" max="12" step="0.5" placeholder="hours" class="metric-input">
+                            <label>Avg Sleep Duration (hrs)</label>
+                            <input type="number" id="avgSleep" min="0" max="12" step="0.5" placeholder="e.g. 7.5" class="metric-input">
                         </div>
                         <div class="metric-item">
                             <label>Sleep Consistency</label>
@@ -250,6 +490,14 @@
                                 <option value="fair">Fair</option>
                                 <option value="poor">Poor</option>
                             </select>
+                        </div>
+                        <div class="metric-item">
+                            <label>HRV (avg)</label>
+                            <input type="number" id="hrvValue" min="0" max="300" placeholder="e.g. 119" class="metric-input">
+                        </div>
+                        <div class="metric-item">
+                            <label>RHR (avg bpm)</label>
+                            <input type="number" id="rhrValue" min="0" max="120" placeholder="e.g. 52" class="metric-input">
                         </div>
                         <div class="metric-item">
                             <label>HRV Trend</label>
@@ -295,9 +543,32 @@
                     </div>
                 </div>
 
+                <!-- Benchmark Tests -->
+                <div class="card">
+                    <h3>Benchmark Tests (if tested this week)</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <label>5K Run (mm:ss)</label>
+                            <input type="text" id="bench5k" placeholder="e.g. 24:10" class="metric-input" pattern="[0-9]{1,2}:[0-5][0-9]">
+                        </div>
+                        <div class="metric-item">
+                            <label>FTP (watts)</label>
+                            <input type="number" id="benchFTP" min="0" max="600" placeholder="e.g. 230" class="metric-input">
+                        </div>
+                        <div class="metric-item">
+                            <label>Squat 1RM (kg)</label>
+                            <input type="number" id="benchSquat" min="0" max="300" placeholder="e.g. 100" class="metric-input">
+                        </div>
+                        <div class="metric-item">
+                            <label>Deadlift 1RM (kg)</label>
+                            <input type="number" id="benchDeadlift" min="0" max="400" placeholder="e.g. 125" class="metric-input">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Coach Decision -->
                 <div class="card">
-                    <h3>Coach Decision & Next Week</h3>
+                    <h3>Coach Decision &amp; Next Week</h3>
                     <div class="coach-section">
                         <div class="metrics-grid">
                             <div class="metric-item">
@@ -311,7 +582,7 @@
                             </div>
                             <div class="metric-item">
                                 <label>Volume Change (%)</label>
-                                <input type="number" id="volumeChange" placeholder="%" class="metric-input">
+                                <input type="number" id="volumeChange" placeholder="e.g. +5" class="metric-input">
                             </div>
                             <div class="metric-item">
                                 <label>Intensity Change</label>
@@ -330,96 +601,155 @@
                     </div>
                 </div>
 
-                <button id="saveTrackingBtn" class="btn btn-success">Save Weekly Update</button>
+                <button id="saveTrackingBtn" class="btn btn-success">💾 Save Weekly Update</button>
             </section>
 
-            <!-- ANALYTICS TAB -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- ANALYTICS TAB                                               -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
             <section id="analytics" class="tab-content">
                 <div class="section-header">
                     <h2>Progress Analytics</h2>
                 </div>
 
-                <!-- Key Metrics Summary -->
-                <div class="card">
-                    <h3>Key Metrics Summary</h3>
-                    <div class="analytics-grid">
-                        <div class="analytics-box">
-                            <h4>Compliance Trend</h4>
-                            <canvas id="complianceChart" height="60"></canvas>
-                        </div>
-                        <div class="analytics-box">
-                            <h4>Performance Status</h4>
-                            <canvas id="performanceRadar" height="60"></canvas>
-                        </div>
+                <!-- Summary Row -->
+                <div class="analytics-summary-row">
+                    <div class="as-card" id="asBestCompliance">
+                        <div class="as-val">—</div>
+                        <div class="as-lbl">Best Compliance Week</div>
+                    </div>
+                    <div class="as-card" id="asAvgCompliance">
+                        <div class="as-val">—%</div>
+                        <div class="as-lbl">Avg Compliance</div>
+                    </div>
+                    <div class="as-card" id="asAvgSleep">
+                        <div class="as-val">—h</div>
+                        <div class="as-lbl">Avg Sleep</div>
+                    </div>
+                    <div class="as-card" id="asWeightChange">
+                        <div class="as-val">—kg</div>
+                        <div class="as-lbl">Weight Change</div>
                     </div>
                 </div>
 
-                <!-- Detailed Trends -->
+                <!-- Compliance + Radar -->
+                <div class="two-col-grid">
+                    <div class="card">
+                        <h3>Compliance Trend</h3>
+                        <canvas id="complianceChart" height="160"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Current Week Performance Radar</h3>
+                        <canvas id="performanceRadar" height="160"></canvas>
+                    </div>
+                </div>
+
+                <!-- Discipline Trends -->
                 <div class="card">
-                    <h3>Detailed Performance Trends</h3>
+                    <h3>Discipline Performance Trends</h3>
                     <div class="trend-selector">
-                        <button class="trend-btn active" data-metric="all">All Disciplines</button>
+                        <button class="trend-btn active" data-metric="all">All</button>
                         <button class="trend-btn" data-metric="run">Run</button>
                         <button class="trend-btn" data-metric="bike">Bike</button>
                         <button class="trend-btn" data-metric="swim">Swim</button>
                         <button class="trend-btn" data-metric="hyrox">Hyrox</button>
                     </div>
-                    <canvas id="trendChart" height="80"></canvas>
+                    <canvas id="trendChart" height="120"></canvas>
                 </div>
 
-                <!-- Recovery & Nutrition Analysis -->
-                <div class="card">
-                    <h3>Recovery Analysis</h3>
-                    <canvas id="recoveryChart" height="80"></canvas>
+                <!-- Recovery Charts -->
+                <div class="two-col-grid">
+                    <div class="card">
+                        <h3>Sleep Quality</h3>
+                        <canvas id="recoveryChart" height="160"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>HRV &amp; RHR Trend</h3>
+                        <canvas id="hrvRhrChart" height="160"></canvas>
+                    </div>
                 </div>
 
-                <!-- Nutrition Trends -->
+                <!-- Nutrition + Weight -->
+                <div class="two-col-grid">
+                    <div class="card">
+                        <h3>Nutrition Adherence</h3>
+                        <canvas id="nutritionChart" height="160"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Body Weight Trend</h3>
+                        <canvas id="weightChart" height="160"></canvas>
+                    </div>
+                </div>
+
+                <!-- Benchmark Tracker -->
                 <div class="card">
-                    <h3>Nutrition Adherence</h3>
-                    <canvas id="nutritionChart" height="80"></canvas>
+                    <h3>Benchmark Performance Tracker</h3>
+                    <div class="trend-selector">
+                        <button class="bench-btn active" data-bench="run">5K Run</button>
+                        <button class="bench-btn" data-bench="ftp">FTP</button>
+                        <button class="bench-btn" data-bench="squat">Squat</button>
+                        <button class="bench-btn" data-bench="deadlift">Deadlift</button>
+                    </div>
+                    <canvas id="benchmarkChart" height="120"></canvas>
+                </div>
+
+                <!-- Volume Distribution Donut -->
+                <div class="two-col-grid">
+                    <div class="card">
+                        <h3>Intensity Zone Distribution</h3>
+                        <div class="donut-wrapper">
+                            <canvas id="zoneDonutChart" height="220"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Discipline Volume Split</h3>
+                        <div class="donut-wrapper">
+                            <canvas id="disciplineDonutChart" height="220"></canvas>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Phase Recommendations -->
                 <div class="card">
                     <h3>Phase-Based Recommendations</h3>
-                    <div id="phaseRecommendations" class="recommendations-list">
-                        <!-- Populated by JS -->
-                    </div>
+                    <div id="phaseRecommendations" class="recommendations-list"></div>
                 </div>
             </section>
 
-            <!-- SETTINGS TAB -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
+            <!-- SETTINGS TAB                                                -->
+            <!-- ═══════════════════════════════════════════════════════════ -->
             <section id="settings" class="tab-content">
                 <div class="section-header">
-                    <h2>Settings & Configuration</h2>
+                    <h2>Settings &amp; Configuration</h2>
                 </div>
-
                 <div class="card">
-                    <h3>Sync & Import</h3>
-                    <p class="info-text">Load your weekly update data from JSON file</p>
+                    <h3>Sync &amp; Import</h3>
+                    <p class="info-text">Load weekly update data from a JSON file</p>
                     <div class="file-input-group">
                         <input type="file" id="dataImport" accept=".json" class="file-input">
-                        <button id="importBtn" class="btn btn-secondary">Import Data</button>
-                        <button id="exportBtn" class="btn btn-secondary">Export Data</button>
+                        <button id="importBtn" class="btn btn-secondary">Import JSON</button>
+                        <button id="exportBtn" class="btn btn-secondary">Export JSON</button>
                     </div>
                 </div>
-
                 <div class="card">
                     <h3>Data Management</h3>
                     <button id="clearDataBtn" class="btn btn-danger">Clear All Data</button>
-                    <p class="info-text">This will reset all tracked data. This action cannot be undone.</p>
+                    <p class="info-text">Resets all 16 weeks of tracked data. Cannot be undone.</p>
                 </div>
-
                 <div class="card">
                     <h3>About</h3>
                     <p><strong>RippedMechanics Progress Tracker</strong></p>
-                    <p>16-Week Hyrox Build + 70.3 Base Program</p>
-                    <p class="info-text">Track your weekly compliance, performance metrics, recovery, and nutrition adherence across all 16 weeks of training.</p>
+                    <p>16-Week Hyrox Build + 70.3 Base Program · v2.0</p>
+                    <p class="info-text">Track compliance, benchmarks, recovery &amp; nutrition across all 16 weeks of training.</p>
                 </div>
             </section>
 
         </main>
     </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
 
     <script src="app.js"></script>
 </body>
