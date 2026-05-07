@@ -1,0 +1,24 @@
+{
+  "week_1": {
+    "week": 1,
+    "completed_sessions": 12,
+    "compliance_score": 100,
+    "run_trend": "stable",
+    "bike_trend": "stable",
+    "swim_trend": "stable",
+    "hyrox_trend": "stable",
+    "avg_sleep": 7.5,
+    "sleep_consistency": "excellent",
+    "hrv_trend": "stable",
+    "rhr_trend": "stable",
+    "macro_adherence": 90,
+    "carb_periodization": 85,
+    "fueling_score": 88,
+    "avg_weight": 75.5,
+    "next_week_load": "progress",
+    "volume_change": 5,
+    "intensity_change": "maintain",
+    "priorities": "Establish consistent sleep window, practice fueling on long sessions",
+    "timestamp": "2026-05-13T00:00:00.000Z"
+  }
+}

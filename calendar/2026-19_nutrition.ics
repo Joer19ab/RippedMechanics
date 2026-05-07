@@ -1,0 +1,597 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RippedMechanics//Nutrition Automation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:RippedMechanics Nutrition 2026-19
+X-WR-TIMEZONE:Europe/Copenhagen
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-0@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T044000
+DTEND;TZID=Europe/Copenhagen:20260511T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 318 kcal\, P 20g\, C 55g\, F 2g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-1@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T071500
+DTEND;TZID=Europe/Copenhagen:20260511T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 628 kcal\, P 40g\, C 90g\, F 12g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-2@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T103000
+DTEND;TZID=Europe/Copenhagen:20260511T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 602 kcal\, P 35g\, C 75g\, F 18g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-3@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T133000
+DTEND;TZID=Europe/Copenhagen:20260511T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 660 kcal\, P 40g\, C 80g\, F 20g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-4@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T153000
+DTEND;TZID=Europe/Copenhagen:20260511T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 387 kcal\, P 20g\, C 70g\, F 3g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-5@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260511T190000
+DTEND;TZID=Europe/Copenhagen:20260511T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Monday moderate day (P 100%\, C 100%\, F 100%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 765 kcal\, P 50g\, C 85g\, F 25g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-6@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T044000
+DTEND;TZID=Europe/Copenhagen:20260512T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 318 kcal\, P 20g\, C 55g\, F 2g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-7@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T071500
+DTEND;TZID=Europe/Copenhagen:20260512T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 628 kcal\, P 40g\, C 90g\, F 12g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-8@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T103000
+DTEND;TZID=Europe/Copenhagen:20260512T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 602 kcal\, P 35g\, C 75g\, F 18g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-9@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T133000
+DTEND;TZID=Europe/Copenhagen:20260512T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 660 kcal\, P 40g\, C 80g\, F 20g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-10@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T153000
+DTEND;TZID=Europe/Copenhagen:20260512T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 387 kcal\, P 20g\, C 70g\, F 3g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-11@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260512T190000
+DTEND;TZID=Europe/Copenhagen:20260512T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Tuesday moderate day (P 100%\, C 100%\, F 100%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 765 kcal\, P 50g\, C 85g\, F 25g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-12@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T044000
+DTEND;TZID=Europe/Copenhagen:20260513T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 318 kcal\, P 20g\, C 55g\, F 2g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-13@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T071500
+DTEND;TZID=Europe/Copenhagen:20260513T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 628 kcal\, P 40g\, C 90g\, F 12g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-14@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T103000
+DTEND;TZID=Europe/Copenhagen:20260513T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 602 kcal\, P 35g\, C 75g\, F 18g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-15@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T133000
+DTEND;TZID=Europe/Copenhagen:20260513T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 660 kcal\, P 40g\, C 80g\, F 20g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-16@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T153000
+DTEND;TZID=Europe/Copenhagen:20260513T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 387 kcal\, P 20g\, C 70g\, F 3g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-17@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260513T190000
+DTEND;TZID=Europe/Copenhagen:20260513T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Wednesday moderate day (P 100%\, C 100%\, F 100%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 765 kcal\, P 50g\, C 85g\, F 25g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-18@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T044000
+DTEND;TZID=Europe/Copenhagen:20260514T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 318 kcal\, P 20g\, C 55g\, F 2g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-19@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T071500
+DTEND;TZID=Europe/Copenhagen:20260514T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 628 kcal\, P 40g\, C 90g\, F 12g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-20@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T103000
+DTEND;TZID=Europe/Copenhagen:20260514T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 602 kcal\, P 35g\, C 75g\, F 18g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-21@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T133000
+DTEND;TZID=Europe/Copenhagen:20260514T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 660 kcal\, P 40g\, C 80g\, F 20g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-22@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T153000
+DTEND;TZID=Europe/Copenhagen:20260514T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 387 kcal\, P 20g\, C 70g\, F 3g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-23@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260514T190000
+DTEND;TZID=Europe/Copenhagen:20260514T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Thursday moderate day (P 100%\, C 100%\, F 100%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 765 kcal\, P 50g\, C 85g\, F 25g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-24@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T044000
+DTEND;TZID=Europe/Copenhagen:20260515T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 318 kcal\, P 20g\, C 55g\, F 2g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-25@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T071500
+DTEND;TZID=Europe/Copenhagen:20260515T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 628 kcal\, P 40g\, C 90g\, F 12g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-26@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T103000
+DTEND;TZID=Europe/Copenhagen:20260515T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 602 kcal\, P 35g\, C 75g\, F 18g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-27@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T133000
+DTEND;TZID=Europe/Copenhagen:20260515T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 660 kcal\, P 40g\, C 80g\, F 20g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-28@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T153000
+DTEND;TZID=Europe/Copenhagen:20260515T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 387 kcal\, P 20g\, C 70g\, F 3g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-29@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260515T190000
+DTEND;TZID=Europe/Copenhagen:20260515T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Friday moderate day (P 100%\, C 100%\, F 100%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 765 kcal\, P 50g\, C 85g\, F 25g. Daily total target: 3360 kcal\, P 205g\, C 455g\, F 80g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-30@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T044000
+DTEND;TZID=Europe/Copenhagen:20260516T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 366 kcal\, P 21g\, C 66g\, F 2g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-31@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T071500
+DTEND;TZID=Europe/Copenhagen:20260516T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 717 kcal\, P 42g\, C 108g\, F 13g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-32@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T103000
+DTEND;TZID=Europe/Copenhagen:20260516T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 675 kcal\, P 36g\, C 90g\, F 19g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-33@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T133000
+DTEND;TZID=Europe/Copenhagen:20260516T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 750 kcal\, P 42g\, C 96g\, F 22g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-34@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T153000
+DTEND;TZID=Europe/Copenhagen:20260516T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 447 kcal\, P 21g\, C 84g\, F 3g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-35@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260516T190000
+DTEND;TZID=Europe/Copenhagen:20260516T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Saturday heavy day (P 105%\, C 120%\, F 110%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 859 kcal\, P 52g\, C 102g\, F 27g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-36@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T044000
+DTEND;TZID=Europe/Copenhagen:20260517T045500
+SUMMARY:Nutrition 1: Pre-AM Primer
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 1 banana (120g) + 30g whey isolate (1 scoop) + 250ml isotonic drink. Target 366 kcal\, P 21g\, C 66g\, F 2g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-37@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T071500
+DTEND;TZID=Europe/Copenhagen:20260517T074500
+SUMMARY:Nutrition 2: Post-AM Recovery Bowl
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 80g rolled oats + 200g low-fat skyr + 30g whey isolate (1 scoop) + 100g mixed berries. Target 717 kcal\, P 42g\, C 108g\, F 13g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-38@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T103000
+DTEND;TZID=Europe/Copenhagen:20260517T105000
+SUMMARY:Nutrition 3: Mid-Morning Chicken Rice
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 160g grilled chicken breast + 200g cooked jasmine rice + 1 tbsp olive oil (10g) + 100g mixed greens. Target 675 kcal\, P 36g\, C 90g\, F 19g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-39@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T133000
+DTEND;TZID=Europe/Copenhagen:20260517T135500
+SUMMARY:Nutrition 4: Lunch Wrap Plate
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 150g lean beef mince + 2 tortilla wraps (70g) + 200g boiled potatoes + 50g avocado + 150g roasted vegetables. Target 750 kcal\, P 42g\, C 96g\, F 22g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-40@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T153000
+DTEND;TZID=Europe/Copenhagen:20260517T154500
+SUMMARY:Nutrition 5: Pre-PM Carb Primer
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 4 rice cakes (32g) + 20g honey + 30g whey isolate (1 scoop). Target 447 kcal\, P 21g\, C 84g\, F 3g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:rm-nutrition-2026-19-41@rippedmechanics
+DTSTAMP:20260506T100257Z
+DTSTART;TZID=Europe/Copenhagen:20260517T190000
+DTEND;TZID=Europe/Copenhagen:20260517T193500
+SUMMARY:Nutrition 6: Dinner and Pre-Bed
+DESCRIPTION:Sunday heavy day (P 105%\, C 120%\, F 110%). 150g salmon or 200g turkey breast + 200g cooked jasmine rice + 200g steamed vegetables + 150g skyr. Target 859 kcal\, P 52g\, C 102g\, F 27g. Daily total target: 3814 kcal\, P 214g\, C 546g\, F 86g.
+BEGIN:VALARM
+TRIGGER:-PT20M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming nutrition slot
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR

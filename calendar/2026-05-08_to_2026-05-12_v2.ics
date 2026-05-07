@@ -1,0 +1,127 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RippedMechanics//Calendar Merge//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:RippedMechanics 2026-05-08_to_2026-05-12
+X-WR-TIMEZONE:Europe/Copenhagen
+
+BEGIN:VEVENT
+UID:rm-2026-19-4@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260508T053000
+DTEND;TZID=Europe/Copenhagen:20260508T064000
+SUMMARY:Week 2026-19 - Bike Z2 Aerobic
+DESCRIPTION:PURPOSE: Active recovery ride. Preserve legs after Thursday double. Build aerobic base at low cardiac cost.\n\nSESSION — 60–70 min @ 130–170W\, cadence 88–95 rpm throughout. This is recovery-quality riding — no intensity\, no surges.\n\nCADENCE WORK — 5x1 min at 100–110 rpm spread evenly (approx min 15\, 25\, 35\, 45\, 55). Power stays flat in Z2 during cadence reps. 2 min normal cadence 88–92 rpm between each.\n\nBREATHING RULE: Nasal breathing only the entire session. If you cannot breathe through your nose comfortably\, you are going too hard — back off immediately.\n\nCOOL-DOWN: Final 10 min below 130W\, cadence 85 rpm\, spin legs fully loose.\n\nKPI: Avg HR below 145. No cardiac drift across the ride (HR not rising over equal power blocks). Avg power stays inside Z2 range throughout.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-5@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260508T161500
+DTEND;TZID=Europe/Copenhagen:20260508T170000
+SUMMARY:Week 2026-19 - Hyrox Strength Endurance Circuit
+DESCRIPTION:PURPOSE: Hyrox station conditioning. Build movement quality and round-to-round consistency under metabolic load.\n\nWARM-UP 8 min: Row 500m easy damper 3–4\, 10 hip circles each direction\, 10 bodyweight squats slow\, 10 shoulder circles forward/back\, 10 band pull-aparts.\n\nMAIN SET — 4 rounds\, 3 min rest between rounds. Log every round split.\n\n  ROW 750m: Damper 4–5. Legs drive first\, lean back\, pull arms to lower ribs. Return: arms out\, lean forward\, then legs. Stroke rate 24–28 spm. Target sub-2:26 total (sub-3:15/500m pace). Longer powerful stroke beats fast sloppy.\n\n  FARMER CARRY 100m: 40–50kg total (20–25kg each hand). Walk tall\, no torso lean. Shoulders packed down/back. Core braced hard. Do not switch grip if possible — if grip fails\, reset and continue. Note if grip was limiter.\n\n  SANDBAG LUNGE 25m: 20kg bag on shoulder. Upright torso. Rear knee hovers 2cm from floor. Drive explosively through front heel. Alternate shoulder each round.\n\n  BURPEE BROAD JUMP x20: Maximum horizontal distance each rep. Chest touches floor. No pausing at top.\n\n  WALL BALL x25: 9kg ball\, full squat depth (hip crease below knee)\, explosive hip drive\, release at eye height. Target 20+ unbroken round 1. Rounds 3–4: break before failure — 15 reps\, rest 5 sec\, finish 10.\n\nKPI: All 4 rounds completed. Round 4 split within 45 sec of round 1. Movement quality maintained. All splits logged.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-6@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260509T080000
+DTEND;TZID=Europe/Copenhagen:20260509T110000
+SUMMARY:Week 2026-19 - Long Bike + Short Brick Run
+DESCRIPTION:PURPOSE: Long aerobic bike base. First brick run of the cycle. Race fueling rehearsal.\n\nBIKE — 2.5 to 3h:\n  0–90 min: Pure Z2\, 130–165W\, cadence 88–95 rpm\, HR cap 148. Most important block. If HR drifts above 148 on flat — ease off.\n  90–150 min: Upper Z2\, 165–185W\, cadence 90–95 rpm. HR allowed to 155.\n  150–180 min: Low tempo\, 185–205W\, cadence 92+ rpm\, HR 155–165. Controlled — not a hard push.\n\nFUELING PROTOCOL: Timer every 20 min. Each alert: drink 150–200ml + gel/chew (20–30g carbs). Target 70–90g carbs/hr\, 600mg sodium/hr. Do not rely on hunger.\n\nBRICK RUN — 20 min immediately off bike.\n  Transition within 60 sec. HR will spike to 160–170 — normal. Do not slow to walk. Let it settle. HR below 160 within 3 min — if not\, slow slightly. Conversational effort. Tall posture\, cadence 170+ spm\, relaxed jaw/shoulders. Neuromuscular training\, not cardiovascular.\n\nKPI: Cardiac drift on bike below 10 bpm over equal power blocks in Z2 segment. Brick run HR settles within 3 min. Fueling alarm executed every 20 min — log each fueling event.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-7@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260510T083000
+DTEND;TZID=Europe/Copenhagen:20260510T100000
+SUMMARY:Week 2026-19 - Long Run Z2
+DESCRIPTION:PURPOSE: The most important aerobic stimulus of the week. Do not compromise this session.\n\nSESSION — 75–90 min. HR cap 150 strict.\n  0–15 min: Very easy\, HR cap 140. Do not start at pace. Ease in\, breathe\, check posture\, feel the feet.\n  15–70 min: Steady Z2\, HR 140–150. Walk any hill that pushes HR above 150 — this is correct aerobic training\, not weakness. Pace will likely be 5:40–6:30/km depending on terrain and fatigue.\n  Final 10 min: Wind down\, HR below 135\, jog fading to walk. Let HR drop naturally.\n\nFORM CUES — check every 10 min:\n  Posture: tall\, slight forward lean from ankles not waist\n  Cadence: 170+ spm (set metronome to 174 if needed)\n  Jaw: relaxed — if tight\, upper body is tight\n  Shoulders: low\, not hunched\n  Glutes: actively driving each stride\n  Breathing: nasal where possible\, rhythmic always\n\nKPI: No HR drift across the 15–70 min middle block. Final km pace within 15 sec of median. Perceived effort conversational throughout. Log avg HR\, avg pace\, and total time in Z2 band.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-8@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260510T170000
+DTEND;TZID=Europe/Copenhagen:20260510T173000
+SUMMARY:Week 2026-19 - Weekly Review + Mobility
+DESCRIPTION:MOBILITY 15 min: Prioritise areas tight or sore this week. Minimum: hip flexors 60 sec each side\, hamstrings 60 sec each side\, calves 45 sec each side\, thoracic extension over roller 60 sec.\n\nWEEKLY REVIEW — complete WEEKLY_REVIEW template fully:\n  1. Sessions completed vs planned (%)\n  2. Biggest win of the week\n  3. Biggest miss — what was the root cause?\n  4. One behaviour change with highest impact next week\n  5. Score each 0–10: compliance / nutrition / sleep / key session quality\n\nPLANNING: Set top 3 priorities for next week. Confirm Monday and Tuesday session times. Note any equipment\, prep\, or recovery needs for next week.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-9@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260511T053000
+DTEND;TZID=Europe/Copenhagen:20260511T070000
+SUMMARY:Week 2026-19 - Lower Strength + Sled Development
+DESCRIPTION:PURPOSE: Build lower body strength and Hyrox sled power without excessive fatigue carryover.\n\nWARM-UP 10 min: Hip circles x10 each direction\, glute bridges 2x15 (2-sec hold)\, goblet squat 2x10 light (2-sec pause)\, ankle rotations x10 each\, banded clamshells 2x15 each side.\n\nBACK SQUAT — 4x5 @ RPE 7 (approx 80–87kg). 3 min rest. Brace 360 degrees\, knees track toes\, hip crease below knee\, drive floor away. No torso collapse. If bar drifts forward\, reduce load. Log weight and RPE.\n\nROMANIAN DEADLIFT — 4x6 @ RPE 7 (approx 75–85kg). 2.5 min rest. Push hips back not down\, neutral spine\, feel hamstrings load before reversing\, bar within 5cm of legs. Log weight and RPE.\n\nWALKING LUNGE — 3x20m @ 40kg. 2 min rest. Upright torso\, rear knee hovers 2cm from floor\, drive through front heel\, lead knee does not cave.\n\nSLED PUSH — 6x15m moderate load\, 60 sec rest. Lean ~45 degrees\, short powerful strides\, balls of feet\, full hip extension each step.\n\nSLED PULL — 6x15m moderate load\, 60 sec rest. Face away from sled\, drive arms back\, upright posture\, quick short steps\, lean slightly back to keep rope tension.\n\nCORE FINISHER — 3 rounds\, 45 sec rest between: Plank 60 sec (brace all three planes) + side plank 30 sec each side (hips stacked and high) + dead bug 10 reps (lower back pinned).\n\nKPI: No form breakdown across any set. Squat depth consistent. Sled pace steady. Log all working weights.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-10@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260511T161500
+DTEND;TZID=Europe/Copenhagen:20260511T173000
+SUMMARY:Week 2026-19 - Run Z2 + Strides
+DESCRIPTION:PURPOSE: Active aerobic maintenance. Reinforce easy running economy with neuromuscular strides.\n\nWARM-UP 10 min: 5 min easy jog HR < 135\, leg swings x10 each leg\, high knees 2x20m\, butt kicks 2x20m\, A-skips 2x20m.\n\nMAIN SET — 40 min Z2: HR cap 135–150 strict. Target pace 5:40–6:10/km flat terrain. HR is the governor — not pace. If HR drifts above 150 before reaching target pace\, slow immediately. Breathe nasally — if you must open your mouth you are going too hard. Check posture every 10 min: tall\, slight lean from ankles\, relaxed shoulders.\n\nSTRIDES — 6x20 sec: 85% controlled fast — not a sprint. Tall posture\, quick ground contact\, relaxed jaw\, arms drive back without crossing midline. 60 sec walk/jog full recovery between each.\n\nCOOL-DOWN 5 min: Easy jog fading to walk. 5 deep diaphragmatic breaths.\n\nKPI: Avg HR below 148. No cardiac drift in final 15 min. Pace-HR ratio stable. Log avg HR and avg pace.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-11@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260512T053000
+DTEND;TZID=Europe/Copenhagen:20260512T064500
+SUMMARY:Week 2026-19 - Swim Technique + CSS Prep
+DESCRIPTION:PURPOSE: Reinforce technique from Thursday. Introduce more aerobic load.\n\nWARM-UP: 300m easy mixed strokes. No effort. Focus on water feel and relaxed neck position.\n\nDRILL SET — 8x50m (25m drill + 25m swim)\, 20 sec rest. Cycle through: Rep 1–2 catch-up drill (lead arm fully extended before opposite arm pulls)\, Rep 3–4 fingertip drag (drag fingertips along surface on recovery to enforce high elbow)\, Rep 5–6 6-kick switch (6 flutter kicks between each stroke cycle)\, Rep 7–8 weakest drill.\n\nAEROBIC SET — 6x100m\, 20 sec rest. HR below 145. Target 16–18 stroke cycles per 25m (32–36 arm strokes). 2-beat kick — balance only. Exhale fully underwater before rotating. Head rotation minimal — one goggle in\, one out.\n\nPULL SET — 200m pull buoy easy. Press chest slightly down\, high elbow catch\, feel forearm pressing back through water.\n\nKPI: Breathing every 3 strokes throughout aerobic set. Relaxed neck and shoulders. Hips not sinking. Stroke count stable or decreasing.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:rm-2026-19-12@rippedmechanics-v2
+DTSTAMP:20260505T123214Z
+DTSTART;TZID=Europe/Copenhagen:20260512T161500
+DTEND;TZID=Europe/Copenhagen:20260512T173000
+SUMMARY:Week 2026-19 - Bike Threshold
+DESCRIPTION:PURPOSE: Second threshold stimulus of the week. Establish FTP repeatability.\n\nFUEL: 40–60g fast carbs 20 min before. 500ml water during.\n\nWARM-UP 15 min: Progressive build 100W to 170W\, cadence 90–95 rpm. Include 3x20 sec fast-pedal at 110+ rpm (at min 8\, 10\, 12).\n\nMAIN SET — 3x10 min @ 218–230W (95–100% FTP)\, 5 min easy spin 120–140W between.\n  Interval 1: Start 218W. Let HR settle by min 2 (expect 168–172). Target HR 170–174 by min 5. Do not exceed 178.\n  Interval 2: If interval 1 finished below HR 175\, target 222–225W. Otherwise hold 218W.\n  Interval 3: Hard cap HR 180. Cadence above 88 rpm. If power must drop to hold HR\, accept it.\n\nCOOL-DOWN 10 min: Easy spin from 160W down to 90W.\n\nKPI: Power CV below 5% per interval. HR below 180 throughout. RPE 7–8 in final minute. Log avg power and avg HR per interval.
+BEGIN:VALARM
+TRIGGER:-PT90M
+ACTION:DISPLAY
+DESCRIPTION:Upcoming training session
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR
