@@ -43,13 +43,34 @@ Use this repo as the persistent operating system for coaching decisions.
 2. Generate this week's calendar file:
 	- `./tools/generate_week_ics.sh --year-week $(date +%Y-%V)`
 	 - Optional reminder lead time: `--alarm-minutes 60`
-	- Optional shifted start: `--start-date 2026-05-06`
+	- Optional shifted start: `--start-date 2026-05-11`
 3. Generate this week's nutrition outputs:
 	- `./tools/generate_week_nutrition.sh --year-week $(date +%Y-%V)`
-	- Optional shifted start: `--start-date 2026-05-06`
+	- Optional shifted start: `--start-date 2026-05-11`
 4. Run full weekly pipeline (update + training ICS + nutrition plan + nutrition ICS + open Calendar):
 	- `./tools/weekly_publish.sh`
-	- Optional shifted start: `./tools/weekly_publish.sh --start-date 2026-05-06`
+	- Optional shifted start: `./tools/weekly_publish.sh --start-date 2026-05-11`
+
+## Local Website + Backend
+- Start fullstack local app (static website + API persistence):
+	- `./tools/serve_website.sh`
+- Optional custom port:
+	- `./tools/serve_website.sh 8080`
+- Health check:
+	- `curl http://localhost:8000/api/health`
+- Data persistence endpoint:
+	- `GET/POST /api/tracker-data`
+
+## Online Deployment (Render)
+- Platform: Render (Web Service)
+- Config file included: `render.yaml`
+- One-time setup in Render:
+	- Create a new Blueprint service from this GitHub repo.
+	- Render reads `render.yaml` automatically.
+	- Service health endpoint: `/api/health`.
+	- Persistent storage is configured with a 1GB disk mounted for tracker data.
+
+After the first setup, pushes to the default branch trigger automatic redeploys.
 
 ## Reliability Commands
 - Daily readiness decision gate:

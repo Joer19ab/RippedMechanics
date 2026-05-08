@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: rippedmechanics
+    env: node
+    plan: starter
+    rootDir: .
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /opt/render/project/src/backend/data
+    disk:
+      name: trackerdata
+      mountPath: /opt/render/project/src/backend/data
+      sizeGB: 1

@@ -45,19 +45,25 @@ A modern web-based progress tracking dashboard for your 16-week Hyrox + 70.3 bui
 
 ### Option 2: Local Development
 
-1. **Open `index.html`** directly in your browser, or
-2. **Run a local server**:
+1. **Run the fullstack local server** from repo root:
    ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Python 2
-   python -m SimpleHTTPServer 8000
-   
-   # Using Node.js (if installed)
-   npx http-server
+   ./tools/serve_website.sh
    ```
-3. **Visit** `http://localhost:8000`
+2. **Visit** `http://localhost:8000`
+
+This local server provides both static website hosting and backend persistence API (`/api/tracker-data`).
+
+### Option 3: One-command local server (from repo root)
+
+```bash
+./tools/serve_website.sh
+```
+
+Optional custom port:
+
+```bash
+./tools/serve_website.sh 8080
+```
 
 ## Usage
 
@@ -119,7 +125,7 @@ const SESSIONS_PER_WEEK = 12;  // Change if your weeks have different session co
 ### Adjust Program Start Date
 Edit the start date in `getWeekStartDate()` method:
 ```javascript
-const startDate = new Date('2026-05-06');  // Change to your program start
+const startDate = new Date('2026-05-11');  // Change to your program start
 ```
 
 ### Customize Colors

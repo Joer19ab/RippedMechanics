@@ -3,9 +3,10 @@
 // ============================================================================
 
 const DATA_KEY        = 'rippedmechanics_data_v2';
+const BACKEND_DATA_ENDPOINT = '/api/tracker-data';
 const WEEKS_COUNT     = 16;
 const SESSIONS_PER_WEEK = 12;
-const PROGRAM_START   = new Date('2026-05-06T00:00:00');
+const PROGRAM_START   = new Date('2026-05-11T00:00:00');
 const RACE_DATE_HYROX = new Date('2026-09-06T00:00:00');
 const RACE_DATE_703   = new Date('2027-06-22T00:00:00');
 
@@ -31,6 +32,11 @@ class ProgressTracker {
         this.data        = this.loadData();
         this.charts      = {};
         this.activeBench = 'run';
+        this.backendState = 'unknown';
+        this.hasSyncedFromBackend = false;
+        this.rebuildChartsPending = false;
+        this.rebuildChartsTimer = null;
+        this.lastRebuildWeek = null;
         this.init();
     }
 
@@ -42,6 +48,7 @@ class ProgressTracker {
         this.renderSessionGrid();
         this.loadWeekData();
         this.initCharts();
+        this.syncFromBackend();
     }
 
     // ── Helpers ──────────────────────────────────────────────────────────────
@@ -102,18 +109,91 @@ class ProgressTracker {
         const stored = localStorage.getItem(DATA_KEY);
         const def    = this.getDefaultData();
         if (stored) {
-            const parsed = JSON.parse(stored);
-            // merge so new weeks get defaults
-            for (let i = 1; i <= WEEKS_COUNT; i++) {
-                const k = `week_${i}`;
-                if (!parsed[k]) parsed[k] = def[k];
+            try {
+                const parsed = JSON.parse(stored);
+                return this.mergeWithDefaults(parsed);
+            } catch {
+                return def;
             }
-            return parsed;
         }
         return def;
     }
     saveData() {
         localStorage.setItem(DATA_KEY, JSON.stringify(this.data));
+        this.syncToBackend();
+    }
+
+    mergeWithDefaults(candidate) {
+        const def = this.getDefaultData();
+        if (!candidate || typeof candidate !== 'object') return def;
+        const merged = { ...candidate };
+        for (let i = 1; i <= WEEKS_COUNT; i++) {
+            const k = `week_${i}`;
+            if (!merged[k]) {
+                merged[k] = def[k];
+                continue;
+            }
+            merged[k] = {
+                ...def[k],
+                ...merged[k],
+                benchmarks: {
+                    ...def[k].benchmarks,
+                    ...(merged[k].benchmarks || {}),
+                },
+                session_status: Array.isArray(merged[k].session_status)
+                    ? merged[k].session_status.slice(0, SESSIONS_PER_WEEK)
+                    : new Array(SESSIONS_PER_WEEK).fill(false),
+            };
+            if (merged[k].session_status.length < SESSIONS_PER_WEEK) {
+                const missing = SESSIONS_PER_WEEK - merged[k].session_status.length;
+                merged[k].session_status.push(...new Array(missing).fill(false));
+            }
+        }
+        return merged;
+    }
+
+    async syncFromBackend() {
+        if (this.hasSyncedFromBackend) return;
+        this.hasSyncedFromBackend = true;
+        try {
+            const res = await fetch(BACKEND_DATA_ENDPOINT, {
+                method: 'GET',
+                cache: 'no-store',
+                headers: { 'Accept': 'application/json' },
+            });
+            if (!res.ok) {
+                this.backendState = 'offline';
+                return;
+            }
+            const payload = await res.json();
+            const incoming = payload?.data ?? payload;
+            if (!incoming || typeof incoming !== 'object') return;
+
+            this.data = this.mergeWithDefaults(incoming);
+            localStorage.setItem(DATA_KEY, JSON.stringify(this.data));
+            this.backendState = 'online';
+
+            this.renderSessionGrid();
+            this.loadWeekData();
+            this.renderDashboard();
+            this.rebuildCharts();
+            this.showToast('Synced with backend', 1400);
+        } catch {
+            this.backendState = 'offline';
+        }
+    }
+
+    async syncToBackend() {
+        try {
+            const res = await fetch(BACKEND_DATA_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: this.data }),
+            });
+            this.backendState = res.ok ? 'online' : 'offline';
+        } catch {
+            this.backendState = 'offline';
+        }
     }
     getDefaultData() {
         const data = {};
@@ -163,6 +243,7 @@ class ProgressTracker {
 
     // ── Event Listeners ──────────────────────────────────────────────────────
     setupEventListeners() {
+        window.addEventListener('resize', () => this.handleWindowResize());
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', e => this.switchTab(e.currentTarget.dataset.tab, e.currentTarget));
         });
@@ -198,6 +279,40 @@ class ProgressTracker {
         });
     }
 
+    handleWindowResize() {
+        clearTimeout(this.resizeTimer);
+        this.resizeTimer = setTimeout(() => {
+            this.reflowDashboardMiniCharts();
+        }, 120);
+    }
+
+    clampCanvasSize(canvas, targetHeight, minWidth = 320, maxWidth = 1400) {
+        if (!canvas) return false;
+        const parentWidth = canvas.parentElement?.clientWidth || 640;
+        const targetWidth = Math.max(minWidth, Math.min(maxWidth, Math.floor(parentWidth)));
+        const oversized = canvas.width > 2500 || canvas.height > 1500;
+
+        canvas.style.width = '100%';
+        canvas.style.height = `${targetHeight}px`;
+        canvas.style.maxHeight = `${targetHeight}px`;
+
+        if (oversized || canvas.width !== targetWidth || canvas.height !== targetHeight) {
+            canvas.width = targetWidth;
+            canvas.height = targetHeight;
+            return true;
+        }
+        return false;
+    }
+
+    reflowDashboardMiniCharts() {
+        const sparkCanvas = document.getElementById('complianceSparkline');
+        const sparkChanged = this.clampCanvasSize(sparkCanvas, 70);
+        if (sparkChanged && this.charts.sparkline) {
+            this.destroyChart('sparkline');
+            this.renderComplianceSparkline();
+        }
+    }
+
     syncWeekSelect() {
         const sel = document.getElementById('weekSelect');
         if (sel) sel.value = this.currentWeek;
@@ -206,7 +321,12 @@ class ProgressTracker {
         this.renderSessionGrid();
         this.loadWeekData();
         this.renderDashboard();
-        this.rebuildCharts();
+        // Only rebuild charts if the analytics tab is currently active
+        // This prevents unnecessary reflows when switching weeks on other tabs
+        const analyticsActive = document.getElementById('analytics')?.classList.contains('active');
+        if (analyticsActive) {
+            this.rebuildCharts();
+        }
     }
 
     // ── Tab Switching ────────────────────────────────────────────────────────
@@ -215,7 +335,10 @@ class ProgressTracker {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(tabName)?.classList.add('active');
         btn?.classList.add('active');
-        if (tabName === 'analytics') setTimeout(() => this.rebuildCharts(), 80);
+        if (tabName === 'analytics') {
+            // Use a shorter delay for analytics tab and leverage debouncing
+            requestAnimationFrame(() => this.rebuildCharts());
+        }
         if (tabName === 'dashboard') this.renderDashboard();
     }
 
@@ -431,18 +554,33 @@ class ProgressTracker {
         // Only rebuild if analytics tab is visible
         const analyticsActive = document.getElementById('analytics')?.classList.contains('active');
         if (!analyticsActive) return;
-        this.buildComplianceChart();
-        this.buildPerformanceRadar();
-        this.buildTrendChart('all');
-        this.buildRecoveryChart();
-        this.buildHRVRHRChart();
-        this.buildNutritionChart();
-        this.buildWeightChart();
-        this.buildBenchmarkChart('run');
-        this.buildZoneDonut();
-        this.buildDisciplineDonut();
-        this.updateAnalyticsSummary();
-        this.updatePhaseRecommendations();
+        
+        // Debounce: if a rebuild is already pending, don't queue another one
+        if (this.rebuildChartsPending) return;
+        
+        // Mark as pending and debounce with a 150ms delay
+        this.rebuildChartsPending = true;
+        clearTimeout(this.rebuildChartsTimer);
+        
+        this.rebuildChartsTimer = setTimeout(() => {
+            this.rebuildChartsPending = false;
+            
+            // Use requestAnimationFrame to batch DOM updates
+            requestAnimationFrame(() => {
+                this.buildComplianceChart();
+                this.buildPerformanceRadar();
+                this.buildTrendChart('all');
+                this.buildRecoveryChart();
+                this.buildHRVRHRChart();
+                this.buildNutritionChart();
+                this.buildWeightChart();
+                this.buildBenchmarkChart('run');
+                this.buildZoneDonut();
+                this.buildDisciplineDonut();
+                this.updateAnalyticsSummary();
+                this.updatePhaseRecommendations();
+            });
+        }, 150);
     }
 
     chartOptions(overrides = {}) {
@@ -476,43 +614,45 @@ class ProgressTracker {
 
     // Dashboard Radar (small)
     renderDashRadar() {
-        const ctx = document.getElementById('dashRadarChart');
-        if (!ctx) return;
+        const container = document.getElementById('performanceSnapshot');
+        if (!container) return;
+
         this.destroyChart('dashRadar');
+
         const wkd = this.data[`week_${this.currentWeek}`];
-        this.charts.dashRadar = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: ['Run','Bike','Swim','Hyrox','Sleep','Nutrition'],
-                datasets: [{
-                    label: `Week ${this.currentWeek}`,
-                    data: [
-                        this.trendToScore(wkd.run_trend),
-                        this.trendToScore(wkd.bike_trend),
-                        this.trendToScore(wkd.swim_trend),
-                        this.trendToScore(wkd.hyrox_trend),
-                        wkd.avg_sleep ? Math.min((wkd.avg_sleep / 8) * 100, 100) : 60,
-                        wkd.macro_adherence || 60,
-                    ],
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59,130,246,0.18)',
-                    pointBackgroundColor: '#3b82f6',
-                    pointRadius: 3,
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(71,85,105,0.3)' }, pointLabels: { color: '#94a3b8', font: { size: 11 } } } },
-                plugins: { legend: { display: false } },
-            },
-        });
+
+        const metrics = [
+            { label: 'Run', value: this.trendToScore(wkd.run_trend) },
+            { label: 'Bike', value: this.trendToScore(wkd.bike_trend) },
+            { label: 'Swim', value: this.trendToScore(wkd.swim_trend) },
+            { label: 'Hyrox', value: this.trendToScore(wkd.hyrox_trend) },
+            { label: 'Sleep', value: wkd.avg_sleep ? Math.min(Math.round((wkd.avg_sleep / 8) * 100), 100) : 60 },
+            { label: 'Nutrition', value: wkd.macro_adherence || 60 },
+        ];
+
+        const overall = Math.round(metrics.reduce((acc, m) => acc + m.value, 0) / metrics.length);
+        const status = overall >= 80 ? 'On Track' : (overall >= 65 ? 'Stable' : 'Needs Focus');
+
+        container.innerHTML = `
+            <div class="ps-head">
+                <div class="ps-score">${overall}</div>
+                <div class="ps-status">${status}</div>
+            </div>
+            ${metrics.map(m => `
+                <div class="ps-metric">
+                    <div class="ps-label">${m.label}</div>
+                    <div class="ps-track"><div class="ps-fill" style="width:${Math.max(0, Math.min(100, m.value))}%"></div></div>
+                    <div class="ps-value">${m.value}</div>
+                </div>
+            `).join('')}
+            <div class="ps-foot">Snapshot score is calculated from discipline trends, sleep, and nutrition this week.</div>
+        `;
     }
 
     renderComplianceSparkline() {
         const ctx = document.getElementById('complianceSparkline');
         if (!ctx) return;
-        this.destroyChart('sparkline');
+        this.clampCanvasSize(ctx, 70);
         const labels = [];
         const data   = [];
         for (let i = 1; i <= WEEKS_COUNT; i++) {
@@ -528,6 +668,15 @@ class ProgressTracker {
             if (s >= 70) return 'rgba(59,130,246,0.7)';
             return 'rgba(239,68,68,0.7)';
         });
+
+        if (this.charts.sparkline) {
+            this.charts.sparkline.data.labels = labels;
+            this.charts.sparkline.data.datasets[0].data = data;
+            this.charts.sparkline.data.datasets[0].backgroundColor = bgColors;
+            this.charts.sparkline.update('none');
+            return;
+        }
+
         this.charts.sparkline = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -535,6 +684,10 @@ class ProgressTracker {
                 datasets: [{ label: 'Compliance %', data, backgroundColor: bgColors, borderRadius: 4 }],
             },
             options: this.chartOptions({
+                responsive: false,
+                maintainAspectRatio: false,
+                animation: false,
+                events: [],
                 scales: {
                     y: { beginAtZero: true, max: 100, ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: 'rgba(71,85,105,0.2)' } },
                     x: { ticks: { color: '#94a3b8', font: { size: 9 } }, grid: { display: false } },
@@ -895,10 +1048,4 @@ class ProgressTracker {
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
     window.tracker = new ProgressTracker();
-    // Trigger analytics chart build when that tab is clicked
-    document.querySelectorAll('.tab-btn[data-tab="analytics"]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            setTimeout(() => window.tracker.rebuildCharts(), 80);
-        });
-    });
 });
