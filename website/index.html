@@ -116,7 +116,7 @@
                     </div>
                     <div class="card">
                         <h3>Performance Snapshot</h3>
-                        <canvas id="dashRadarChart" height="220"></canvas>
+                        <div id="performanceSnapshot" class="performance-snapshot"></div>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@
                                 <span>Phase 4</span><small>Sharpen</small><small>W13–15</small>
                             </div>
                             <div class="tl-phase tl-phase-5" style="width:6.25%">
-                                <span>5</span><small>Race</small><small>W16</small>
+                                <span>Ph.5</span><small>Race</small><small>W16</small>
                             </div>
                         </div>
                         <div class="tl-marker-row">
@@ -164,7 +164,7 @@
             <section id="plan" class="tab-content">
                 <div class="section-header">
                     <h2>16-Week Program Plan</h2>
-                    <p>Hyrox Build + 70.3 Base — May 6 to Aug 22, 2026</p>
+                    <p>Hyrox Build + 70.3 Base — May 11 to Aug 30, 2026</p>
                 </div>
 
                 <!-- Phase Cards -->
@@ -267,83 +267,95 @@
                     <div class="week-template-grid">
                         <div class="wt-day">
                             <div class="wt-day-label">MON</div>
-                            <div class="wt-session wt-run">
+                            <div class="wt-session wt-run" data-session-id="0">
                                 <div class="wt-time">AM</div>
                                 <div class="wt-desc">Easy Run Z2 + Strides</div>
                                 <div class="wt-tag">Run • Z2</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
-                            <div class="wt-session wt-strength">
+                            <div class="wt-session wt-strength" data-session-id="1">
                                 <div class="wt-time">PM</div>
                                 <div class="wt-desc">Lower Strength + Sled</div>
                                 <div class="wt-tag">Strength • Hyrox</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">TUE</div>
-                            <div class="wt-session wt-swim">
+                            <div class="wt-session wt-swim" data-session-id="2">
                                 <div class="wt-time">AM</div>
                                 <div class="wt-desc">Swim Technique / Aerobic</div>
                                 <div class="wt-tag">Swim • Technique</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
-                            <div class="wt-session wt-bike wt-hard">
+                            <div class="wt-session wt-bike wt-hard" data-session-id="3">
                                 <div class="wt-time">PM</div>
                                 <div class="wt-desc">Bike Threshold</div>
                                 <div class="wt-tag">Bike • Threshold ⚡</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">WED</div>
-                            <div class="wt-session wt-hyrox wt-hard">
+                            <div class="wt-session wt-hyrox wt-hard" data-session-id="4">
                                 <div class="wt-time">AM</div>
                                 <div class="wt-desc">Hyrox Engine Intervals</div>
                                 <div class="wt-tag">Hyrox • Intervals ⚡</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
-                            <div class="wt-session wt-recovery">
+                            <div class="wt-session wt-recovery" data-session-id="5">
                                 <div class="wt-time">PM</div>
                                 <div class="wt-desc">Mobility + Breathing</div>
                                 <div class="wt-tag">Recovery</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">THU</div>
-                            <div class="wt-session wt-swim">
+                            <div class="wt-session wt-swim" data-session-id="6">
                                 <div class="wt-time">AM</div>
                                 <div class="wt-desc">Swim + Pull Focus</div>
                                 <div class="wt-tag">Swim • Strength</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
-                            <div class="wt-session wt-run wt-hard">
+                            <div class="wt-session wt-run wt-hard" data-session-id="7">
                                 <div class="wt-time">PM</div>
                                 <div class="wt-desc">Run Threshold / Tempo</div>
                                 <div class="wt-tag">Run • Threshold ⚡</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">FRI</div>
-                            <div class="wt-session wt-bike">
+                            <div class="wt-session wt-bike" data-session-id="8">
                                 <div class="wt-time">AM</div>
                                 <div class="wt-desc">Easy Bike Z2</div>
                                 <div class="wt-tag">Bike • Z2</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
-                            <div class="wt-session wt-hyrox wt-hard">
+                            <div class="wt-session wt-hyrox wt-hard" data-session-id="9">
                                 <div class="wt-time">PM</div>
                                 <div class="wt-desc">Hyrox Strength Circuit</div>
                                 <div class="wt-tag">Hyrox • Strength ⚡</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">SAT</div>
-                            <div class="wt-session wt-bike wt-long">
+                            <div class="wt-session wt-bike wt-long" data-session-id="10">
                                 <div class="wt-time">ALL</div>
                                 <div class="wt-desc">Long Bike or Brick</div>
                                 <div class="wt-tag">Bike/Brick • Z2 🔑</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                         <div class="wt-day">
                             <div class="wt-day-label">SUN</div>
-                            <div class="wt-session wt-run wt-long">
+                            <div class="wt-session wt-run wt-long" data-session-id="11">
                                 <div class="wt-time">ALL</div>
                                 <div class="wt-desc">Long Run Z2 + Mobility</div>
                                 <div class="wt-tag">Run • Z2 🔑</div>
+                                <div class="wt-view-hint">Tap to view →</div>
                             </div>
                         </div>
                     </div>
@@ -723,9 +735,59 @@
                 <div class="section-header">
                     <h2>Settings &amp; Configuration</h2>
                 </div>
+
+                <!-- Device Import -->
                 <div class="card">
-                    <h3>Sync &amp; Import</h3>
-                    <p class="info-text">Load weekly update data from a JSON file</p>
+                    <h3>Device Import</h3>
+                    <p class="info-text">Import CSV exports from WHOOP or Garmin Connect to auto-fill HRV, RHR, sleep, and benchmark data across your training weeks.</p>
+                    <div class="device-import-grid">
+                        <div class="device-import-block">
+                            <div class="dib-header">
+                                <span class="dib-icon dib-icon--whoop">W</span>
+                                <div>
+                                    <div class="dib-title">WHOOP</div>
+                                    <div class="dib-sub">Recovery &amp; Sleep CSV</div>
+                                </div>
+                            </div>
+                            <p class="info-text">In the WHOOP app go to <strong>Profile → Download My Data</strong>. Import <code>recovery.csv</code> (fills HRV + RHR) or <code>sleeps.csv</code> (fills avg sleep + consistency).</p>
+                            <div class="dib-fields">
+                                <span class="dib-field">HRV</span>
+                                <span class="dib-field">RHR</span>
+                                <span class="dib-field">Avg Sleep</span>
+                                <span class="dib-field">Sleep Consistency</span>
+                            </div>
+                            <div class="file-input-group">
+                                <input type="file" id="whoopImport" accept=".csv" class="file-input">
+                                <button id="whoopImportBtn" class="btn btn-secondary">Preview &amp; Import</button>
+                            </div>
+                        </div>
+                        <div class="device-import-block">
+                            <div class="dib-header">
+                                <span class="dib-icon dib-icon--garmin">G</span>
+                                <div>
+                                    <div class="dib-title">Garmin Connect</div>
+                                    <div class="dib-sub">Activities CSV</div>
+                                </div>
+                            </div>
+                            <p class="info-text">In Garmin Connect go to <strong>Activities → export to CSV</strong>. Maps run pace to 5K benchmarks, cycling power to FTP, and marks sessions complete by date.</p>
+                            <div class="dib-fields">
+                                <span class="dib-field">5K Time</span>
+                                <span class="dib-field">FTP Watts</span>
+                                <span class="dib-field">Run Trend</span>
+                                <span class="dib-field">Bike Trend</span>
+                                <span class="dib-field">Session Status</span>
+                            </div>
+                            <div class="file-input-group">
+                                <input type="file" id="garminImport" accept=".csv" class="file-input">
+                                <button id="garminImportBtn" class="btn btn-secondary">Preview &amp; Import</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Sync &amp; Backup</h3>
+                    <p class="info-text">Load or save the full tracker data as a JSON backup file</p>
                     <div class="file-input-group">
                         <input type="file" id="dataImport" accept=".json" class="file-input">
                         <button id="importBtn" class="btn btn-secondary">Import JSON</button>
@@ -750,6 +812,42 @@
 
     <!-- Toast notification -->
     <div class="toast" id="toast"></div>
+
+    <!-- Session Detail Modal -->
+    <div class="session-modal-overlay" id="sessionModalOverlay" role="dialog" aria-modal="true" aria-labelledby="sessionModalTitle">
+
+    <!-- Device Import Preview Modal -->
+    <div class="import-modal-overlay" id="importModalOverlay" role="dialog" aria-modal="true" aria-labelledby="importModalTitle">
+        <div class="import-modal">
+            <div class="import-modal-header">
+                <div>
+                    <div class="import-modal-source" id="importModalSource"></div>
+                    <h2 id="importModalTitle">Import Preview</h2>
+                    <p class="import-modal-sub" id="importModalSub"></p>
+                </div>
+                <button class="sm-close" id="importModalClose" aria-label="Close import preview">✕</button>
+            </div>
+            <div class="import-modal-body" id="importModalBody"></div>
+            <div class="import-modal-footer">
+                <button class="btn btn-secondary" id="importModalCancel">Cancel</button>
+                <button class="btn btn-primary" id="importModalConfirm">Apply Import</button>
+            </div>
+        </div>
+    </div>
+        <div class="session-modal">
+            <div class="sm-header">
+                <div class="sm-meta">
+                    <span class="sm-day" id="smDay"></span>
+                    <span class="sm-duration" id="smDuration"></span>
+                    <span class="sm-time-range" id="smTimeRange"></span>
+                </div>
+                <h2 class="sm-title" id="sessionModalTitle"></h2>
+                <p class="sm-purpose" id="smPurpose"></p>
+                <button class="sm-close" id="sessionModalClose" aria-label="Close session detail">✕</button>
+            </div>
+            <div class="sm-body" id="smBody"></div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
