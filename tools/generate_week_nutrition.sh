@@ -6,7 +6,7 @@ set -euo pipefail
 #   ./tools/generate_week_nutrition.sh
 #   ./tools/generate_week_nutrition.sh --year-week 2026-19
 #   ./tools/generate_week_nutrition.sh --year-week 2026-19 --timezone Europe/Copenhagen --alarm-minutes 20
-#   ./tools/generate_week_nutrition.sh --start-date 2026-05-06
+#   ./tools/generate_week_nutrition.sh --start-date 2026-05-11
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DAY_TYPE_CSV="$ROOT_DIR/nutrition/templates/WEEK_DAY_TYPES.csv"

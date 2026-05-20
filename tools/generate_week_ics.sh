@@ -6,7 +6,7 @@ set -euo pipefail
 #   ./tools/generate_week_ics.sh
 #   ./tools/generate_week_ics.sh --year-week 2026-20
 #   ./tools/generate_week_ics.sh --year-week 2026-20 --timezone Europe/Copenhagen
-#   ./tools/generate_week_ics.sh --start-date 2026-05-06
+#   ./tools/generate_week_ics.sh --start-date 2026-05-11
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 TEMPLATE_CSV="$ROOT_DIR/calendar/templates/WEEK_STANDARD_SESSIONS.csv"

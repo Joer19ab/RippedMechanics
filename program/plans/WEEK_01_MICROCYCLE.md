@@ -1,11 +1,11 @@
 # Week 01 Microcycle (12 Sessions)
 
-Cycle Start: 2026-05-06 (Wed)
-Cycle End: 2026-05-12 (Tue)
+Cycle Start: 2026-05-11 (Mon)
+Cycle End: 2026-05-17 (Sun)
 Primary Focus: Baseline testing, technical foundations, high compliance, establishing daily protocol
 
 ## Execution Order This Cycle
-Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
+Mon 11 -> Tue 12 -> Wed 13 -> Thu 14 -> Fri 15 -> Sat 16 -> Sun 17
 
 ## Global Rules
 - HR is the governor on all easy and Z2 sessions. Pace is irrelevant until HR is controlled.
@@ -16,7 +16,7 @@ Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
 
 ---
 
-## Wednesday 6 May
+## Monday 11 May
 
 ### AM 05:30-06:50 — Hyrox Engine Intro
 **Purpose:** Establish compromised running baseline. First exposure to run-SkiErg alternation.
@@ -76,7 +76,7 @@ Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
 
 ---
 
-## Thursday 7 May
+## Tuesday 12 May
 
 ### AM 05:30-06:45 — Swim Technique + Pull Focus
 **Purpose:** Build technique foundation and comfort. No fitness targets this week — mechanics only.
@@ -132,7 +132,7 @@ Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
 
 ---
 
-## Friday 8 May
+## Wednesday 13 May
 
 ### PM 16:15-17:25 — Bike Z2 Aerobic
 **Purpose:** Active recovery ride. Preserve legs after Thursday double. Build aerobic base at low cardiac cost.
@@ -184,7 +184,7 @@ Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
 
 ---
 
-## Saturday 9 May
+## Thursday 14 May
 
 ### AM 08:00-11:00 — Long Bike + Short Brick Run
 **Purpose:** Long aerobic bike base. First brick run of the cycle. Practice race fueling.
@@ -211,7 +211,7 @@ Wed 6 -> Thu 7 -> Fri 8 -> Sat 9 -> Sun 10 -> Mon 11 -> Tue 12
 
 ---
 
-## Sunday 10 May
+## Friday 15 May
 
 ### AM 08:30-10:00 — Long Run Z2
 **Purpose:** The most important aerobic stimulus of the week. Do not compromise this.
@@ -256,7 +256,7 @@ Answer these fully:
 
 ---
 
-## Monday 11 May
+## Saturday 16 May
 
 ### PM 16:15-17:30 — Run Z2 + Strides
 **Purpose:** Active aerobic maintenance. Reinforce easy running economy with neuromuscular strides.
@@ -324,7 +324,7 @@ Answer these fully:
 
 ---
 
-## Tuesday 12 May
+## Sunday 17 May
 
 ### AM 05:30-06:45 — Swim Technique + CSS Prep
 **Purpose:** Reinforce technique from Thursday. Introduce more aerobic load.
@@ -391,7 +391,7 @@ Complete these inside the week where freshness allows. Do NOT stack tests on har
 All results go into the client profile as v0.1 benchmarks.
 
 ## Daily Nutrition Targets by Day Type
-- Moderate day (Wed/Thu/Fri/Mon/Tue): 3360 kcal, 205g protein, 455g carbs, 80g fat
+- Moderate day (Mon/Tue/Wed/Thu/Fri): 3360 kcal, 205g protein, 455g carbs, 80g fat
 - Heavy day (Sat/Sun): 3814 kcal, 214g protein, 546g carbs, 86g fat
 
 ## Compliance Standard
